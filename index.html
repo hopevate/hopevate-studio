@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Clarity Compass — Minimalist Luxury Landing</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy: #1D2B36;
+      --cream: #F5F5DC;
+      --gold:  #C5B358;
+      --max-width: 1100px;
+      --radius: 14px;
+      --soft-shadow: 0 6px 18px rgba(29,43,54,0.15);
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Merriweather", serif;
+      background: var(--cream);
+      color: var(--navy);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-text-size-adjust:100%;
+    }
+
+    a{color:inherit;text-decoration:none;}
+
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:4rem 2rem;
+    }
+
+    /* Section defaults */
+    section{
+      padding:4rem 0;
+    }
+
+    /* Hero (I) */
+    .hero{
+      background: var(--cream);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      border-bottom: 1px solid rgba(29,43,54,0.04);
+    }
+
+    .hero .wrap{
+      padding-top:6rem;
+      padding-bottom:6rem;
+    }
+
+    .eyebrow{
+      display:block;
+      font-weight:700;
+      font-size:0.9rem;
+      letter-spacing:0.06em;
+      color: rgba(29,43,54,0.65);
+      margin-bottom:0.6rem;
+    }
+
+    h1{
+      font-family: "Cormorant Garamond", serif;
+      font-weight:700;
+      font-size: clamp(2rem, 4.4vw, 3.2rem);
+      margin:0 0 1rem;
+      color: var(--navy);
+      line-height:1.05;
+    }
+
+    .lead{
+      font-family: "Merriweather", serif;
+      font-weight:400;
+      font-size: clamp(1rem, 2.2vw, 1.125rem);
+      max-width:72ch;
+      margin:0 auto 1.6rem;
+      color: rgba(29,43,54,0.85);
+    }
+
+    .lead strong{color:var(--navy);font-weight:700}
+
+    .hero-actions{
+      margin-top:1.6rem;
+      display:flex;
+      gap:1rem;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:0.85rem 1.15rem;
+      border-radius:10px;
+      font-weight:700;
+      letter-spacing:0.02em;
+      text-transform:uppercase;
+      font-size:0.9rem;
+      border:2px solid transparent;
+      transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+      box-shadow:none;
+    }
+
+    .btn:focus{outline:3px solid rgba(197,179,88,0.18); outline-offset:3px}
+
+    .btn-ghost{
+      background:transparent;
+      color:var(--navy);
+      border-color: rgba(29,43,54,0.06);
+      padding-left:1.25rem;
+      padding-right:1.25rem;
+    }
+
+    .btn-ghost:hover{transform:translateY(-3px); box-shadow:var(--soft-shadow)}
+
+    .btn-primary{
+      background: var(--navy);
+      color: var(--cream);
+      border:2px solid var(--navy);
+      padding-left:1.25rem;
+      padding-right:1.25rem;
+    }
+
+    .btn-primary:hover{transform:translateY(-3px); box-shadow:var(--soft-shadow)}
+
+    /* Section II: Value Anchor */
+    .value-anchor{
+      background: var(--navy);
+      color: var(--cream);
+      border-top: 1px solid rgba(245,245,220,0.03);
+    }
+
+    .value-grid{
+      display:grid;
+      grid-template-columns: 2fr 1fr;
+      gap:2rem;
+      align-items:center;
+    }
+
+    .value-grid h2{
+      margin:0 0 1rem;
+      font-family:"Cormorant Garamond", serif;
+      font-weight:700;
+      font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+      color: var(--cream);
+    }
+
+    .value-grid p{
+      margin:0;
+      color: rgba(245,245,220,0.92);
+      font-size:1.02rem;
+      max-width:48ch;
+    }
+
+    .placeholder-box{
+      background: linear-gradient(180deg, rgba(8,13,18,0.95), rgba(20,28,36,0.98));
+      border-radius:12px;
+      min-height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:1.25rem;
+      box-shadow: 0 8px 30px rgba(1,6,10,0.35);
+      border: 1px solid rgba(197,179,88,0.12);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .placeholder-inner{
+      text-align:center;
+      color: rgba(197,179,88,0.95);
+      font-weight:700;
+      font-family:"Merriweather", serif;
+      font-size:0.98rem;
+      max-width:18ch;
+    }
+
+    .placeholder-accent{
+      position:absolute;
+      top:14px;
+      right:14px;
+      background:var(--gold);
+      color:var(--navy);
+      font-weight:700;
+      padding:0.35rem 0.6rem;
+      border-radius:8px;
+      font-size:0.75rem;
+      letter-spacing:0.02em;
+    }
+
+    /* Section III: Process (3 cards) */
+    .process{
+      background: var(--cream);
+      color: var(--navy);
+      text-align:center;
+    }
+
+    .process h2{
+      font-family:"Cormorant Garamond", serif;
+      font-weight:700;
+      font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+      margin-bottom:1rem;
+      color:var(--navy);
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:1.25rem;
+      margin-top:2rem;
+      align-items:stretch;
+    }
+
+    .card{
+      background: white;
+      border-radius:12px;
+      padding:1.6rem;
+      text-align:left;
+      box-shadow: var(--soft-shadow);
+      border:1px solid rgba(29,43,54,0.04);
+      display:flex;
+      flex-direction:column;
+      gap:0.8rem;
+    }
+
+    .card h3{
+      margin:0;
+      font-family:"Cormorant Garamond", serif;
+      font-weight:700;
+      font-size:1.05rem;
+      color:var(--navy);
+    }
+
+    .card p{
+      margin:0;
+      color: rgba(29,43,54,0.8);
+      font-size:0.98rem;
+      line-height:1.45;
+    }
+
+    /* Section IV: CTA */
+    .cta{
+      background: var(--navy);
+      color: var(--cream);
+      text-align:center;
+      padding-top:4.5rem;
+      padding-bottom:4.5rem;
+      border-top: 1px solid rgba(245,245,220,0.03);
+    }
+
+    .cta h2{
+      font-family:"Cormorant Garamond", serif;
+      font-weight:700;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      margin:0 0 0.6rem;
+      color: var(--cream);
+    }
+
+    .cta .price{
+      font-family:"Merriweather", serif;
+      font-weight:700;
+      color: rgba(245,245,220,0.95);
+      margin-bottom:1rem;
+    }
+
+    .cta .cta-button{
+      display:inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding:1rem 1.6rem;
+      border-radius:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:0.02em;
+      box-shadow: 0 10px 30px rgba(197,179,88,0.16);
+      border: 2px solid rgba(29,43,54,0.06);
+      font-size:1rem;
+    }
+
+    .cta .cta-button:hover{
+      transform:translateY(-3px);
+      box-shadow: 0 18px 40px rgba(29,43,54,0.18);
+    }
+
+    .cta .small{
+      display:block;
+      margin-top:0.8rem;
+      font-size:0.95rem;
+      color: rgba(245,245,220,0.9);
+    }
+
+    /* Footer (V) */
+    footer{
+      background: var(--navy);
+      color: rgba(245,245,220,0.7);
+      padding:1.25rem 0;
+      text-align:center;
+      font-size:0.92rem;
+      border-top:1px solid rgba(245,245,220,0.02);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .value-grid{grid-template-columns:1fr; text-align:left}
+      .wrap{padding-left:1.25rem;padding-right:1.25rem}
+      .value-grid .placeholder-box{min-height:180px}
+      .cards{grid-template-columns:1fr}
+    }
+
+    @media (max-width:480px){
+      .hero .wrap{padding-top:3.5rem;padding-bottom:3.5rem}
+      h1{font-size:1.9rem}
+      .lead{font-size:0.98rem}
+      .btn{font-size:0.82rem;padding:0.7rem 0.9rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- I. HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="wrap">
+      <span class="eyebrow" aria-hidden="true">The Clarity Compass</span>
+      <h1>The Clarity Compass. Stop researching, start doing.</h1>
+
+      <p class="lead">
+        Tired of the <strong>Analysis Paralysis</strong> that keeps your dream life stuck in research? We provide the definitive <strong>Proprietary Insight and Guidance Blueprint</strong> to move from stuck to success.
+      </p>
+
+      <div class="hero-actions" role="group" aria-label="Hero actions">
+        <!-- hero button links to CTA section -->
+        <a href="#cta" class="btn btn-primary" title="Get My Clarity Audit">Get My Clarity Audit</a>
+        <a href="#process" class="btn btn-ghost" title="Learn why $99/month">Why $99 / Month?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- II. VALUE ANCHOR -->
+  <section class="value-anchor" aria-label="Value anchor">
+    <div class="wrap value-grid">
+      <div>
+        <h2>The Certainty Compass. Your 5-Year Path in 48 Hours.</h2>
+        <p>
+          Our proprietary audit instantly analyzes your deepest value conflicts and skills to chart three guaranteed profitable and fulfilling trajectories. No meetings. No time wasted. Just a clear, data-backed plan.
+        </p>
+      </div>
+
+      <div>
+        <div class="placeholder-box" role="img" aria-label="Audit preview placeholder">
+          <div class="placeholder-accent">Preview</div>
+          <div class="placeholder-inner">
+            Image / Quote placeholder — a concise visual to represent the audit report or client testimony.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- III. THE PROCESS -->
+  <section id="process" class="process" aria-label="The process">
+    <div class="wrap" style="max-width:var(--max-width);">
+      <h2>Why $99/Month? We Don't Sell Talk. We Sell Certainty.</h2>
+
+      <div class="cards" role="list" aria-label="Three step process">
+        <article class="card" role="listitem" aria-labelledby="card1-title">
+          <h3 id="card1-title">1. The Paralysis Diagnosis</h3>
+          <p>
+            A personalized, named report on <em>why</em> you are stuck, complete with a 48-Hour Fix to build immediate momentum.
+          </p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="card2-title">
+          <h3 id="card2-title">2. The Three Trajectories</h3>
+          <p>
+            Three distinct, fully validated 5-year paths to your dream life, minimizing risk and maximizing fulfillment.
+          </p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="card3-title">
+          <h3 id="card3-title">3. The Momentum</h3>
+          <p>
+            A 90-Day Action Ladder and recurring Skill Signal updates to ensure you never lose focus on your chosen path.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- IV. CALL TO ACTION -->
+  <section id="cta" class="cta" aria-label="Call to action">
+    <div class="wrap" style="max-width:820px;">
+      <h2>Start Your Ascent Today. Stop Waiting.</h2>
+
+      <div class="price" aria-hidden="true">
+        The Clarity Compass subscription: <strong>$99 USD/Month</strong>
+      </div>
+
+      <p class="small">Get your personalized audit within 48 hours.</p>
+
+      <div style="margin-top:1.25rem;">
+        <!-- CRITICAL: placeholder href as requested -->
+        <a href="[INSERT FASTSPRING CHECKOUT URL HERE]" class="cta-button" role="button" aria-label="Get My Clarity Audit — $99 per month">
+          GET MY CLARITY AUDIT
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- V. FOOTER -->
+  <footer aria-label="Footer">
+    <div class="wrap" style="padding-top:0;padding-bottom:0;max-width:var(--max-width);">
+      © <span id="year"></span> The Clarity Compass — All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Small script to set year (keeps markup minimal; not required by brief but safe). 
+       If you prefer no JavaScript at all, remove the script block and set year manually. -->
+  <script>
+    // This tiny line only sets the footer year; remove if you want zero JS.
+    try{document.getElementById('year').textContent = new Date().getFullYear()}catch(e){}
+  </script>
+
+</body>
+</html>
